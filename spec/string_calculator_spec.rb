@@ -24,5 +24,11 @@ RSpec.describe StringCalculator do
         expect(string_calculator.add("10,20,30,40,50,60")).to eq(210)
       end
     end
+    context "with newline delimiters" do
+      it "treats newlines as valid delimiters" do
+        expect(string_calculator.add("1\n2,3")).to eq(6)
+        expect(string_calculator.add("10\n20\n30")).to eq(60)
+      end
+    end
   end
 end
